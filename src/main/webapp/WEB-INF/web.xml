@@ -9,26 +9,8 @@
     <exception-type>java.lang.NullPointerException</exception-type>
     <location>/SetError</location>
   </error-page>
-  
-<context-param>
+  <context-param>
     <param-name>max</param-name>
     <param-value>100</param-value>
-</context-param>
-
-<!--  
-
-    <servlet>
-          <servlet-name>SetError</servlet-name>
-          <servlet-class>com.my.web.SetError</servlet-class>
-          <init-param>  
-          	<param-name>servletParam</param-name>  
-          	<param-value>bbb</param-value>  
-        </init-param>  
-        <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-      <servlet-name>SetError</servlet-name>
-      <url-pattern>/SetError</url-pattern>
-  </servlet-mapping>
--->
+  </context-param>
 </web-app>
