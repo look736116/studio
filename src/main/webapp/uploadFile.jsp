@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="UploadFile" method="post" enctype="multipart/form-data"  multiple>
+<form action="UploadFile2" method="post" enctype="multipart/form-data"  multiple>
 <input type="file" name="myFile" size="10"  >
 <input type="submit"  value="上传文件">
 </form>
