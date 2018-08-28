@@ -27,7 +27,6 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 
 		PreparedStatement pre = null;
 		ResultSet result = null;
-		ResultSetMetaData metaData = null;
 
 		RoleInfo roleInfo = null;
 		List<RoleInfo> roles = new ArrayList<>();
@@ -36,7 +35,6 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 		try {
 			pre = con.prepareStatement(sql);
 			result = pre.executeQuery();
-			metaData = result.getMetaData();
 			while (result.next()) {
 				roleInfo = new RoleInfo();
 				roleInfo.setRole_id(result.getString("role_id"));
@@ -76,8 +74,6 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 		// TODO Auto-generated method stub
 		logger.info("Add roleInfo to table!");
 		PreparedStatement pre = null;
-		ResultSet result = null;
-		ResultSetMetaData metaData = null;
 		Boolean addFlag = false;
 		int num = 0;
 
@@ -260,11 +256,10 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 	@Override
 	public List<RoleInfo> getRolesByServer(String roleServer) {
 		// TODO Auto-generated method stub
-		logger.info("Get all role info form my_info!");
+		logger.info("Get all role info form my_info by server!");
 
 		PreparedStatement pre = null;
 		ResultSet result = null;
-		ResultSetMetaData metaData = null;
 
 		RoleInfo roleInfo = null;
 		List<RoleInfo> roles = new ArrayList<>();
@@ -274,7 +269,6 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, roleServer);
 			result = pre.executeQuery();
-			metaData = result.getMetaData();
 			while (result.next()) {
 				roleInfo = new RoleInfo();
 				roleInfo.setRole_id(result.getString("role_id"));
