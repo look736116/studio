@@ -7,6 +7,7 @@ public class RoleInfo {
 	private String role_sect;
 	private int role_grade;
 	private String role_server;
+	private int role_order;
 	
 	
 
@@ -24,6 +25,19 @@ public class RoleInfo {
 		this.role_sect = role_sect;
 		this.role_grade = role_grade;
 		this.role_server = role_server;
+	}
+
+	
+	public RoleInfo(String role_id, String role_account, String role_name, String role_sect, int role_grade,
+			String role_server, int role_order) {
+		super();
+		this.role_id = role_id;
+		this.role_account = role_account;
+		this.role_name = role_name;
+		this.role_sect = role_sect;
+		this.role_grade = role_grade;
+		this.role_server = role_server;
+		this.role_order = role_order;
 	}
 
 	public String getRole_id() {
@@ -72,6 +86,14 @@ public class RoleInfo {
 
 	public void setRole_server(String role_server) {
 		this.role_server = role_server;
+	}
+
+	public int getRole_order() {
+		return role_order;
+	}
+
+	public void setRole_order(int role_order) {
+		this.role_order = role_order;
 	}
 
 	@Override

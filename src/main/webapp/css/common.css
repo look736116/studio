@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: rgb(179, 184, 198);
+}
+
+#headTitle {
+	color: blue;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 50px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+#homeLink{
+	text-align:right;
+	font-weight:bold;
+	font-size:20px;	
+	margin:0px 425px 0px 0px;
+}
