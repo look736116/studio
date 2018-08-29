@@ -13,9 +13,9 @@
 	RoleInfoServer ris = new RoleInfoServerImpl();
 	roles = (List) request.getAttribute("roles");
 	String dateStr = (String) request.getAttribute("dateStr");
+	
 	String serverName = "全部区服";
 	String currentServer = (String) request.getAttribute("serverName");
-	System.out.printf(currentServer+"=====");
 	if (currentServer != null && currentServer != "") {
 		serverName = currentServer;
 	}
@@ -56,11 +56,11 @@
 			<thead>
 				<tr>
 					<th>序号</th>
-					<th>账号</th>
-					<th>角色</th>
+					<th>账号</th>					
 					<th>门派</th>
 					<th>等级</th>
 					<th>区服</th>
+					<th>角色</th>
 					<th>环数</th>
 					<th>更新</th>
 
@@ -85,10 +85,10 @@
 				<tr>
 					<td><%=i + 1%></td>
 					<td><%=role.getRole_account().replace("@changyou.com", "")%></td>
-					<td><%=role.getRole_name()%></td>
 					<td><%=role.getRole_sect()%></td>
 					<td><%=role.getRole_grade()%></td>
 					<td><%=role.getRole_server()%></td>
+					<td><%=role.getRole_name()%></td>					
 					<td><%=taskNum%></td>
 					<td><input type="button" id="updateButton"
 						onclick="location='AddRecord?roleId=<%=role.getRole_id()%>'"

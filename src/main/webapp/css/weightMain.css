@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+
+th,td{
+	width:120px;
+	height:18px;
+	text-align:center;
+	font-size: 15px;
+}
+#choiceServer{
+	font-size:18px;
+	font-weight:bold;
+}
+select{
+	font-size:18px;
+}
+
+

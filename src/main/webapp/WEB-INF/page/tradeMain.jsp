@@ -2,8 +2,6 @@
 <%@page import="com.studio.dao.TradeInfoDao"%>
 <%@page import="com.studio.entity.TradeInfo"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.studio.util.DataBaseUtils"%>
-<%@page import="com.studio.entity.Record"%>
 <%@page import="com.studio.server.impl.RoleInfoServerImpl"%>
 <%@page import="com.studio.server.RoleInfoServer"%>
 <%@page import="com.studio.entity.RoleInfo"%>
@@ -23,7 +21,6 @@
 	
 	String serverName = "全部区服";
 	String currentServer = (String) request.getAttribute("serverName");
-	System.out.printf(currentServer+"=====");
 	if (currentServer != null && currentServer != "") {
 		serverName = currentServer;
 	}
@@ -55,7 +52,7 @@
 		</div>
 
 		<div id="homeLink" class="homeLink">
-		<a href="/myWeb/AddTrade"><input type="button" value="添加记录"></a>	<a href="main.jsp"><input type="button" value="返回主页"></a>
+		<a href="/myWeb/AddTrade">添加记录</a>	<a href="main.jsp">返回主页</a>
 		</div>
 	</center>
 	<center>
@@ -83,7 +80,7 @@
 					<td><%=tradeInfo.getTradeServer() %></td>
 					<td><%=tradeInfo.getTradeCurrency() %></td>
 					<td><%=tradeInfo.getTradeMoney() %></td>
-					<td><%=tradeInfo.getTradeTime() %></td>
+					<td><%=tradeInfo.getTradeTime().substring(5, 11) %></td>
 					<td></td>					
 
 				</tr>
