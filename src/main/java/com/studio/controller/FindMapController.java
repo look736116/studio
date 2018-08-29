@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.studio.entity.RoleInfo;
 import com.studio.server.RoleInfoServer;
 import com.studio.server.impl.RoleInfoServerImpl;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 /**
  * Servlet implementation class FindMapController
@@ -44,7 +44,7 @@ public class FindMapController extends HttpServlet {
 		roles = ris.getAllRoleInfo();
 		request.setAttribute("roles", roles);		
 		
-		request.setAttribute("dateStr", DataBaseUtils.getCurrentDay());
+		request.setAttribute("dateStr", Utils.getCurrentDay());
 		
 		request.getRequestDispatcher("/findMap.jsp").forward(request, response);
 		//this.getServletContext().getRequestDispatcher("/url").forward(request, response);

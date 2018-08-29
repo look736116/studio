@@ -3,7 +3,6 @@ package com.studio.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +11,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.studio.dao.RoleInfoDao;
-import com.studio.entity.Record;
+import com.studio.entity.RecordInfo;
 import com.studio.entity.RoleInfo;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 public class RoleInfoDaoImpl implements RoleInfoDao {
 
@@ -23,15 +22,15 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 	@Override
 	public List<RoleInfo> getAllRoleInfo() {
 		// TODO Auto-generated method stub
-		logger.info("Get all role info form my_info!");
+		logger.info("Get all role info form role_info!");
 
 		PreparedStatement pre = null;
 		ResultSet result = null;
 
 		RoleInfo roleInfo = null;
 		List<RoleInfo> roles = new ArrayList<>();
-		Connection con = DataBaseUtils.getConection();
-		String sql = "select * from role_info order by role_server,role_account,role_order";
+		Connection con = Utils.getConection();
+		String sql = "select * from role_info order by role_account,role_server,role_order";
 		try {
 			pre = con.prepareStatement(sql);
 			result = pre.executeQuery();
@@ -77,7 +76,7 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 		Boolean addFlag = false;
 		int num = 0;
 
-		Connection con = DataBaseUtils.getConection();
+		Connection con = Utils.getConection();
 		String sql = "insert into role_info values (?,?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
@@ -123,7 +122,7 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 		ResultSet result = null;
 
 		RoleInfo roleInfo = null;
-		Connection con = DataBaseUtils.getConection();
+		Connection con = Utils.getConection();
 		String sql = "select * from role_info where role_id = ?";		
 		try {
 			pre = con.prepareStatement(sql);
@@ -163,21 +162,21 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 	}
 
 	@Override
-	public boolean addNewRecord(Record record) {
+	public boolean addNewRecord(RecordInfo recordInfo) {
 		// TODO Auto-generated method stub
 		logger.info("Add record!");
 		PreparedStatement pre = null;
 		Boolean addFlag = false;
 		int num = 0;
 
-		Connection con = DataBaseUtils.getConection();
-		String sql = "insert into record values (?,?,?,?,?)";
+		Connection con = Utils.getConection();
+		String sql = "insert into record_info values (?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
-			pre.setString(1,record.getRecordId());
-			pre.setString(2, record.getRoleId());
-			pre.setString(3,record.getRecordTime());
-			pre.setString(4,record.getRecordNum());	
+			pre.setString(1,recordInfo.getRecordId());
+			pre.setString(2, recordInfo.getRoleId());
+			pre.setString(3,recordInfo.getRecordTime());
+			pre.setString(4,recordInfo.getRecordNum());	
 			pre.setString(5,"暂无！");	
 			num = pre.executeUpdate();
 			if (num > 0) {
@@ -207,27 +206,27 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 	}
 
 	@Override
-	public Record getRecordByRoleId(String roleId) {
+	public RecordInfo getRecordByRoleId(String roleId) {
 		// TODO Auto-generated method stub
-		logger.info("Get records info form record!");
+		logger.info("Get records info from record_info!");
 
 		PreparedStatement pre = null;
 		ResultSet result = null;
 
-		Record record = null;
-		Connection con = DataBaseUtils.getConection();
-		String sql = "select * from record where role_id = ?  order by record_time desc limit 1";
+		RecordInfo recordInfo = null;
+		Connection con = Utils.getConection();
+		String sql = "select * from record_info where role_id = ?  order by record_time desc limit 1";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, roleId);
 			result = pre.executeQuery();
 			while (result.next()) {
-				record = new Record();
-				record.setRecordId(result.getString("record_id"));
-				record.setRoleId(result.getString("role_id"));
-				record.setRecordTime(result.getString("record_time"));
-				record.setRecordNum(result.getString("record_num"));
-				record.setRecordComment(result.getString("record_comment"));
+				recordInfo = new RecordInfo();
+				recordInfo.setRecordId(result.getString("record_id"));
+				recordInfo.setRoleId(result.getString("role_id"));
+				recordInfo.setRecordTime(result.getString("record_time"));
+				recordInfo.setRecordNum(result.getString("record_num"));
+				recordInfo.setRecordComment(result.getString("record_comment"));
 			}
 
 		} catch (SQLException e) {
@@ -250,21 +249,21 @@ public class RoleInfoDaoImpl implements RoleInfoDao {
 			}
 		}
 
-		return record;
+		return recordInfo;
 	}
 
 	@Override
 	public List<RoleInfo> getRolesByServer(String roleServer) {
 		// TODO Auto-generated method stub
-		logger.info("Get all role info form my_info by server!");
+		logger.info("Get all role info from role_info by server!");
 
 		PreparedStatement pre = null;
 		ResultSet result = null;
 
 		RoleInfo roleInfo = null;
 		List<RoleInfo> roles = new ArrayList<>();
-		Connection con = DataBaseUtils.getConection();
-		String sql = "select * from role_info where role_server =? order by role_server,role_account,role_order";
+		Connection con = Utils.getConection();
+		String sql = "select * from role_info where role_server =? order by role_account,role_server,role_order";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, roleServer);

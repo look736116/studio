@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.studio.dao.RoleInfoDao;
 import com.studio.dao.impl.RoleInfoDaoImpl;
-import com.studio.entity.Record;
+import com.studio.entity.RecordInfo;
 import com.studio.entity.RoleInfo;
 import com.studio.server.RoleInfoServer;
 
@@ -29,13 +29,13 @@ public class RoleInfoServerImpl implements RoleInfoServer {
 	}
 
 	@Override
-	public boolean addNewRecord(Record record) {
+	public boolean addNewRecord(RecordInfo recordInfo) {
 		// TODO Auto-generated method stub
-		return rid.addNewRecord(record);
+		return rid.addNewRecord(recordInfo);
 	}
 
 	@Override
-	public Record getRecordByRoleId(String roleId) {
+	public RecordInfo getRecordByRoleId(String roleId) {
 		// TODO Auto-generated method stub
 		return rid.getRecordByRoleId(roleId);
 	}

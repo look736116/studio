@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.studio.entity.RoleInfo;
 import com.studio.server.RoleInfoServer;
 import com.studio.server.impl.RoleInfoServerImpl;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 /**
  * Servlet implementation class UpdateDetails
@@ -50,7 +50,7 @@ public class UpdateDetails extends HttpServlet {
 		}
 
 		request.setAttribute("roles", roles);
-		request.setAttribute("dateStr", DataBaseUtils.getCurrentDay());
+		request.setAttribute("dateStr", Utils.getCurrentDay());
 		request.setAttribute("serverName", serverName);
 
 		request.getRequestDispatcher("/findMap.jsp").forward(request, response);

@@ -11,9 +11,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class DataBaseUtils {
+public class Utils {
 
-	private static final Logger logger = LogManager.getLogger(DataBaseUtils.class);
+	private static final Logger logger = LogManager.getLogger(Utils.class);
 	
 	public static Connection getConection(){
 		Connection con = null;

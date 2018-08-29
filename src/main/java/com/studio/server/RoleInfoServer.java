@@ -2,7 +2,7 @@ package com.studio.server;
 
 import java.util.List;
 
-import com.studio.entity.Record;
+import com.studio.entity.RecordInfo;
 import com.studio.entity.RoleInfo;
 
 public interface RoleInfoServer {
@@ -13,9 +13,9 @@ public interface RoleInfoServer {
 	
 	public RoleInfo getRoleInfoById(String roleId);
 	
-	public boolean addNewRecord(Record record);
+	public boolean addNewRecord(RecordInfo recordInfo);
 	
-	public Record getRecordByRoleId(String roleId);
+	public RecordInfo getRecordByRoleId(String roleId);
 	
 	//get roles by server name
 	public List<RoleInfo> getRolesByServer(String roleServer);

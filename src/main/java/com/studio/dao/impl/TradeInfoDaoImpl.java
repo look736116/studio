@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.studio.dao.TradeInfoDao;
 import com.studio.entity.TradeInfo;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 public class TradeInfoDaoImpl implements TradeInfoDao {
 	
@@ -29,7 +29,7 @@ public class TradeInfoDaoImpl implements TradeInfoDao {
 		Boolean addFlag = false;
 		int num = 0;
 
-		Connection con = DataBaseUtils.getConection();
+		Connection con = Utils.getConection();
 		String sql = "insert into trade_info values (?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class TradeInfoDaoImpl implements TradeInfoDao {
 
 		TradeInfo tradeInfo = null;
 		List<TradeInfo> trades = new ArrayList<>();
-		Connection con = DataBaseUtils.getConection();
+		Connection con = Utils.getConection();
 		String sql = "select * from trade_info order by trade_server,trade_time";
 		try {
 			pre = con.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class TradeInfoDaoImpl implements TradeInfoDao {
 
 		TradeInfo tradeInfo = null;
 		List<TradeInfo> trades = new ArrayList<>();
-		Connection con = DataBaseUtils.getConection();
+		Connection con = Utils.getConection();
 		String sql = "select * from trade_info where trade_server = ?  order by trade_server,trade_time";
 		try {
 			pre = con.prepareStatement(sql);

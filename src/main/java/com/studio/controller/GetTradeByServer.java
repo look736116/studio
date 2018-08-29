@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.studio.entity.TradeInfo;
 import com.studio.server.TradeInfoServer;
 import com.studio.server.impl.TradeInfoServerImpl;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 /**
  * Servlet implementation class GetTradeByServer

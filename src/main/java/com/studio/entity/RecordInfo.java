@@ -1,17 +1,17 @@
 package com.studio.entity;
 
-public class Record {
+public class RecordInfo {
 	private String recordId;
 	private String roleId;
 	private String recordTime;
 	private String recordNum;
 	private String recordComment;
-	public Record() {
+	public RecordInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Record(String recordId, String roleId, String recordTime, String recordNum) {
+	public RecordInfo(String recordId, String roleId, String recordTime, String recordNum) {
 		super();
 		this.recordId = recordId;
 		this.roleId = roleId;
@@ -19,7 +19,7 @@ public class Record {
 		this.recordNum = recordNum;
 	}
 
-	public Record(String recordId, String roleId, String recordTime, String recordNum, String recordComment) {
+	public RecordInfo(String recordId, String roleId, String recordTime, String recordNum, String recordComment) {
 		super();
 		this.recordId = recordId;
 		this.roleId = roleId;

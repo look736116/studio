@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.studio.entity.TradeInfo;
 import com.studio.server.TradeInfoServer;
 import com.studio.server.impl.TradeInfoServerImpl;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 /**
  * Servlet implementation class AddTradeDetails
@@ -44,7 +44,7 @@ public class AddTradeDetails extends HttpServlet {
 		tradeInfo.setTradeServer(request.getParameter("server"));
 		tradeInfo.setTradeCurrency(Integer.parseInt(request.getParameter("tradeCurrency")));
 		tradeInfo.setTradeMoney(Integer.parseInt(request.getParameter("tradeMoney")));
-		tradeInfo.setTradeTime(DataBaseUtils.getCurrentTime());
+		tradeInfo.setTradeTime(Utils.getCurrentTime());
 		tradeInfo.setTradeComment("");
 		tis.addTradeInfo(tradeInfo);		
 

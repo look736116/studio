@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.studio.dao.RoleInfoDao;
 import com.studio.dao.impl.RoleInfoDaoImpl;
-import com.studio.entity.Record;
+import com.studio.entity.RecordInfo;
 import com.studio.entity.RoleInfo;
 import com.studio.server.RoleInfoServer;
 import com.studio.server.impl.RoleInfoServerImpl;
-import com.studio.util.DataBaseUtils;
+import com.studio.util.Utils;
 
 /**
  * Servlet implementation class AddRecordDetails
@@ -45,26 +45,26 @@ public class AddRecordDetails extends HttpServlet {
 		
 		List<RoleInfo> roles = null;
 		
-		Record record = new Record();
+		RecordInfo recordInfo = new RecordInfo();
 		RoleInfoServer ris= new RoleInfoServerImpl();
 		roles = ris.getAllRoleInfo();
 		
 		
-		String dateStr = DataBaseUtils.getCurrentTime();
+		String dateStr = Utils.getCurrentTime();
 		
 	
 		
 		String recordId = UUID.randomUUID().toString().replaceAll("-", "");
-		record.setRecordId(recordId);
+		recordInfo.setRecordId(recordId);
 		
 		String roleId  = request.getParameter("roleId");	
-		record.setRoleId(roleId);
+		recordInfo.setRoleId(roleId);
 		
 		String taskNum  = request.getParameter("taskNum");
-		record.setRecordNum(taskNum);
+		recordInfo.setRecordNum(taskNum);
 
-		record.setRecordTime(dateStr);
-		ris.addNewRecord(record);
+		recordInfo.setRecordTime(dateStr);
+		ris.addNewRecord(recordInfo);
 		
 		request.setAttribute("roles", roles);
 		request.setAttribute("dateStr", dateStr.substring(0, 11));

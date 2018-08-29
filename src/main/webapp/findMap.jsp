@@ -1,6 +1,6 @@
+<%@page import="com.studio.util.Utils"%>
+<%@page import="com.studio.entity.RecordInfo"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.studio.util.DataBaseUtils"%>
-<%@page import="com.studio.entity.Record"%>
 <%@page import="com.studio.server.impl.RoleInfoServerImpl"%>
 <%@page import="com.studio.server.RoleInfoServer"%>
 <%@page import="com.studio.entity.RoleInfo"%>
@@ -9,7 +9,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	List<RoleInfo> roles = null;
-	Record record = null;
+	RecordInfo record = null;
 	RoleInfoServer ris = new RoleInfoServerImpl();
 	roles = (List) request.getAttribute("roles");
 	String dateStr = (String) request.getAttribute("dateStr");
@@ -75,7 +75,7 @@
 						record = ris.getRecordByRoleId(roleId);
 						if (record != null) {
 							String recordDay = record.getRecordTime().substring(0, 11);
-							String currentDay = DataBaseUtils.getCurrentTime().substring(0, 11);
+							String currentDay = Utils.getCurrentTime().substring(0, 11);
 							if (recordDay.equals(currentDay)) {
 								taskNum = record.getRecordNum();
 							}
