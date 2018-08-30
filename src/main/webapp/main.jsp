@@ -16,8 +16,8 @@
 		<ul>
 			<li><a href="FindMapController">打图监控</a></li>
 			<li><a href="AddRole">角色管理</a></li>
-			<li><a href="TradeDetails">交易记录</a></li>
-			<li><a href="WeightDetails">体重监控</a></li>
+			<li><a href="TradeDetails">交易记录</a></li>			
+			<!--  <li><a href="WeightDetails">体重监控</a></li>-->
 		</ul>
 	</div>
 </center>
