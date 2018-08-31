@@ -11,7 +11,11 @@
 	List<RoleInfo> roles = null;
 	RecordInfo record = null;
 	RoleInfoServer ris = new RoleInfoServerImpl();
-	roles = (List) request.getAttribute("roles");
+	if(request.getAttribute("roles")!=null){
+		roles = (List) request.getAttribute("roles");
+	}else{
+		roles = ris.getAllRoleInfo();
+	}
 	String dateStr = (String) request.getAttribute("dateStr");
 	
 	String serverName = "全部区服";
@@ -91,7 +95,7 @@
 					<td><%=role.getRole_name()%></td>					
 					<td><%=taskNum%></td>
 					<td><input type="button" id="updateButton"
-						onclick="location='AddRecord?roleId=<%=role.getRole_id()%>'"
+						onclick="location='AddRecord?roleId=<%=role.getRole_id()%>&roleServer=<%=serverName %>'"
 						value='更新'></td>
 
 				</tr>

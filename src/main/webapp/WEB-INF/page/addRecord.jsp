@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	RoleInfo roleInfo = (RoleInfo) request.getAttribute("roleInfo");
+	String roleServer = (String)request.getAttribute("roleServer");	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +21,7 @@
 		<a href="main.jsp">回到主页</a>
 	</div>
 	<center>
-		<form action="AddRecordDetails" method="post">
+		<form action="AddRecordDetails?roleServer=<%=roleServer %>" method="post">
 		<input type="hidden" name="roleId" value="<%=roleInfo.getRole_id() %>">			
 				<div class="roleInfo">
 					区服：<%=roleInfo.getRole_server()%></div>

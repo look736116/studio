@@ -31,8 +31,10 @@ public class AddRecord extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String roleId = request.getParameter("roleId");
+		String roleServer = request.getParameter("roleServer");
 		RoleInfo  roleInfo = new RoleInfoServerImpl().getRoleInfoById(roleId);
 		request.setAttribute("roleInfo", roleInfo);
+		request.setAttribute("roleServer", roleServer);
 		request.getRequestDispatcher("/WEB-INF/page/addRecord.jsp").forward(request, response);
 
 		

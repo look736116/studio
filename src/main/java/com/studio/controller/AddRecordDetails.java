@@ -47,11 +47,7 @@ public class AddRecordDetails extends HttpServlet {
 		
 		RecordInfo recordInfo = new RecordInfo();
 		RoleInfoServer ris= new RoleInfoServerImpl();
-		roles = ris.getAllRoleInfo();
-		
-		
-		String dateStr = Utils.getCurrentTime();
-		
+		String dateStr = Utils.getCurrentTime();		
 	
 		
 		String recordId = UUID.randomUUID().toString().replaceAll("-", "");
@@ -62,12 +58,17 @@ public class AddRecordDetails extends HttpServlet {
 		
 		String taskNum  = request.getParameter("taskNum");
 		recordInfo.setRecordNum(taskNum);
-
 		recordInfo.setRecordTime(dateStr);
 		ris.addNewRecord(recordInfo);
 		
+		String roleServer = request.getParameter("roleServer");
+		if(!roleServer.equals("全部区服")){
+			roles = ris.getRolesByServer(roleServer);
+		}
+		
 		request.setAttribute("roles", roles);
 		request.setAttribute("dateStr", dateStr.substring(0, 11));
+		request.setAttribute("serverName", roleServer);
 		request.getRequestDispatcher("findMap.jsp").forward(request, response);
 
 		
